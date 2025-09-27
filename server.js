@@ -31,12 +31,12 @@ app.get("/complete-order", (req, res) => {
         `);
 });
 
-app.get("/current-orders", (req, res)=>{
+app.get("/current-orders", (req, res) => {
     const orderNo = req.query.orderNo;
     res.send("hello..." + orders[orderNo]);
 });
 
-app.get("/all-orders", (req, res)=>{
+app.get("/all-orders", (req, res) => {
     const htmlListItems = orders.map((order) => {
         return `<li> ${order} </li>`
     });
@@ -47,6 +47,29 @@ app.get("/all-orders", (req, res)=>{
         <!DOCTYPE HTML>
             <ol>
                 ${html}
+            </ol>
+        `);
+});
+
+app.get("/all-orders-2", (req, res) => {
+
+    res.send(`
+        <!DOCTYPE HTML>
+            <ul>
+                ${orders.map(order => `<li> ${order} </li>`).join("\n")}
+            </ul>
+        `);
+});
+
+app.get("/all-orders-for-loop", (req, res) => {
+    let htmlListItems = "";
+    for (let i = 0; i < orders.length; i++) {
+        htmlListItems = htmlListItems + `<li> ~~ ${orders[i]} ~~ </li>`;
+    }
+    res.send(`
+        <!DOCTYPE HTML>
+            <ol>
+                ${htmlListItems}
             </ol>
         `);
 });
