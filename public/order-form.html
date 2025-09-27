@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order some Tea</title>
+</head>
+<body>
+    <h1>Order your Tea here...</h1>
+    <form action="/complete-order" method="get">
+        <label for="firstName">Your name</label> <br>
+        <input type="text" name="firstName" id="firstName"> <br>
+        <label for="product">What would you like?</label> <br>
+        <input type="text" name="product" id="product"> <br>
+        <label for="quantity">How many?</label>
+        <input type="number" name="quantity" id="quantity">
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>
